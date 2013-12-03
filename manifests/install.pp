@@ -21,6 +21,7 @@ class newrelic::install {
     location    => 'http://apt.newrelic.com/debian/',
     release     => 'newrelic',
     repos       => 'non-free',
+    include_src => false,
     key         => '548C16BF',
     key_source  => 'http://apt.atl.3dna.io/548C16BF.asc',
   }
