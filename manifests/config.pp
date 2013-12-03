@@ -30,6 +30,7 @@ class newrelic::config (
   $ssl_ca_path    = undef,
   $collector_host = undef,
   $timeout        = undef,
+  $hostname       = $::fqdn,
 ) inherits newrelic::params {
   file { $newrelic::params::config_file:
     content => template('newrelic/nrsysmond.cfg.erb'),
