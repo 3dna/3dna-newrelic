@@ -1,0 +1,8 @@
+---
+# defaults from the ubuntu packages for 12.04
+newrelic::config::loglevel: info
+newrelic::config::config_file: /etc/newrelic/nrsysmond.cfg
+newrelic::config::logfile: /var/log/newrelic/nrsysmond.log
+
+newrelic::install::package: newrelic-sysmond
+newrelic::service::service: newrelic-sysmond

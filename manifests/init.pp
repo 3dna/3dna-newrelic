@@ -16,7 +16,7 @@
 #
 # Copyright 2013 3dna
 #
-class newrelic inherits newrelic::params {
+class newrelic {
   include ::newrelic::install
   include ::newrelic::config
   include ::newrelic::service

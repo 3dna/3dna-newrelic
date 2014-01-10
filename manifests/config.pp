@@ -22,17 +22,19 @@
 #
 class newrelic::config (
   $license_key,
-  $nr_loglevel    = $newrelic::params::nr_loglevel,
-  $logfile        = $newrelic::params::logfile,
-  $pidfile        = $newrelic::params::pidfile,
   $proxy          = undef,
   $ssl_ca_bundle  = undef,
   $ssl_ca_path    = undef,
   $collector_host = undef,
   $timeout        = undef,
   $hostname       = $::fqdn,
-) inherits newrelic::params {
-  file { $newrelic::params::config_file:
+  # these defaults provided via hiera
+  $nr_loglevel,
+  $logfile,
+  $pidfile,
+  $config_file,
+) {
+  file { $config_file:
     content => template('newrelic/nrsysmond.cfg.erb'),
   }
 }

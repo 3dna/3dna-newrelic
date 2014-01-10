@@ -5,7 +5,7 @@
 # === Parameters
 #
 # [*service*]
-#   override the default service name from newrelic::params
+#   override the default service name from the module's hiera
 # [*ensure*]
 #   whether or not puppet should ensure the service. defaults to undef
 # [*enable*]
@@ -28,10 +28,11 @@
 # Copyright 2013 3dna
 #
 class newrelic::service (
-  $service = $newrelic::params::service,
   $ensure  = undef,
   $enable  = true,
-) inherits newrelic::params {
+  # these defaults provided via hiera
+  $service,
+) {
   service { $service:
     ensure => $ensure,
     enable => $enable,

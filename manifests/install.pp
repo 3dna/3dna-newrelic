@@ -4,7 +4,7 @@
 #
 # === Parameters
 #
-# [*$newrelic::params::package*]
+# [*$package*]
 #   the name of the package
 #
 # === Authors
@@ -15,7 +15,10 @@
 #
 # Copyright 2013 3dna
 #
-class newrelic::install {
+class newrelic::install (
+  # these defaults provided via hiera
+  $package,
+) {
   # probably should be a separate class
   apt::source { 'newrelic':
     location    => 'http://apt.newrelic.com/debian/',
@@ -26,7 +29,7 @@ class newrelic::install {
     key_source  => 'http://apt.atl.3dna.io/548C16BF.asc',
   }
 
-  package {$newrelic::params::package:
+  package {$package:
     ensure  => installed,
     require => Apt::Source['newrelic'],
   }
