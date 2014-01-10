@@ -1,3 +1,5 @@
 ---
+# http://www.devco.net/archives/2013/12/08/better-puppet-modules-using-hiera-data.php
+# http://forge.puppetlabs.com/ripienaar/module_data
 :hierarchy:
   - common
