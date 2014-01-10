@@ -28,10 +28,10 @@ class newrelic::config (
   $collector_host = undef,
   $timeout        = undef,
   $hostname       = $::fqdn,
+  $pidfile        = undef,
   # these defaults provided via hiera
   $nr_loglevel,
   $logfile,
-  $pidfile,
   $config_file,
 ) {
   file { $config_file:
