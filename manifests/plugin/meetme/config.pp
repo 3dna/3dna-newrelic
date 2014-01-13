@@ -21,6 +21,8 @@ class newrelic::plugin::meetme::config (
   $wake_interval        = 60,
   # defaults for these come from hiera
   $config_file,
+  $init_destination,
+  $init_source,
 ) {
   include newrelic::config
 
@@ -30,5 +32,11 @@ class newrelic::plugin::meetme::config (
     owner    => 'root',
     group    => 'root',
     mode     => '0644',
+  }
+
+  # init script since the pip package doesn't install one for us
+  # values come from hiera
+  file { $init_destination:
+    ensure => $init_source,
   }
 }
