@@ -100,7 +100,10 @@ class newrelic::plugin::meetme::config (
   }
 
   # install the init script in the proper place
-  file { $init_destination:
-    ensure => $init_source,
+  file {
+    $init_destination:
+      ensure     => $init_source;
+    $init_source:
+      mode => '0755';
   }
 }
