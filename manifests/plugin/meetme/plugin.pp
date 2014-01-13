@@ -20,7 +20,7 @@ define newrelic::plugin::meetme::plugin (
     target        => $newrelic::plugin::meetme::config::config_file,
     data          => {
       'Application' => {
-        type     => $config,
+        "${type}"       => $config,
       },
     },
   }

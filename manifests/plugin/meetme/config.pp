@@ -40,7 +40,7 @@ class newrelic::plugin::meetme::config (
   datacat_fragment { "${config_file}_application":
     target            => $config_file,
     data              => {
-      'Application '    => {
+      'Application'    => {
         license_key   => $newrelic_license_key,
         wake_interval => $wake_interval,
       },
