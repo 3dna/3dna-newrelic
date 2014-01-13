@@ -12,6 +12,7 @@ newrelic::plugin::meetme::config::config_file: /etc/newrelic/newrelic_plugin_age
 newrelic::plugin::meetme::config::user: newrelic
 newrelic::plugin::meetme::config::pidfile: /var/run/newrelic/newrelic_plugin_agent.pid
 newrelic::plugin::meetme::config::logfile: /var/log/newrelic/newrelic_plugin_agent.log
+newrelic::plugin::meetme::config::wake_interval: 60
 newrelic::plugin::meetme::config::init_destination: /etc/init.d/newrelic_plugin_agent
 newrelic::plugin::meetme::config::init_source: /opt/newrelic_plugin_agent/newrelic_plugin_agent.deb
 newrelic::plugin::meetme::service::service: newrelic_plugin_agent

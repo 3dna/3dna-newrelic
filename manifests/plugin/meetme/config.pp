@@ -18,7 +18,6 @@
 #
 class newrelic::plugin::meetme::config (
   $newrelic_license_key = $newrelic::config::license_key,
-  $wake_interval        = 60,
   $proxy                = undef,
   # defaults for these come from hiera
   $config_file,
@@ -27,6 +26,7 @@ class newrelic::plugin::meetme::config (
   $user,
   $pidfile,
   $logfile,
+  $wake_interval,
 ) {
   include newrelic::config
 
