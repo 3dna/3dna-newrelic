@@ -22,6 +22,8 @@ class newrelic::plugin::meetme (
   include newrelic::plugin::meetme::config
   include newrelic::plugin::meetme::service
 
+  Class['newrelic::plugin::meetme::install'] -> Class['newrelic::plugin::meetme::config'] ~> Class['newrelic::plugin::meetme::service']
+
   anchor {
     'newrelic::plugin::meetme::begin':
       before => [Class['::newrelic::plugin::meetme::install'],Class['::newrelic::plugin::meetme::config']],
