@@ -11,14 +11,17 @@
 # Copyright 2014 3dna
 #
 define newrelic::plugin::meetme::plugin (
+  $type,
   $config = {},
 ) {
   include newrelic::plugin::meetme::config
 
   datacat_fragment { "newrelic::plugin::meetme::plugin::${name}":
-    target    => $newrelic::plugin::meetme::config::config_file,
-    data      => {
-      plugins => $config,
+    target        => $newrelic::plugin::meetme::config::config_file,
+    data          => {
+      'Application' => {
+        type     => $config,
+      },
     },
   }
 }
