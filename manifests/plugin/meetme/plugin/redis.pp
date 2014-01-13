@@ -26,9 +26,9 @@
 define newrelic::plugin::meetme::plugin::redis (
   $host     = 'localhost',
   $port     = 6379,
-  $db_count = 16,
-  $password = undef,
-  $path     = undef,
+  $db_count = 16, # needs to be an integer
+  $password = undef, # should not be sent at all if it's undef
+  $path     = undef, # should not be sent at all if it's undef
 ) {
   include newrelic::plugin::meetme
   include newrelic::plugin::meetme::config

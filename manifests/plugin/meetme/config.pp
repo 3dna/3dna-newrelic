@@ -26,7 +26,7 @@ class newrelic::plugin::meetme::config (
   $user,
   $pidfile,
   $logfile,
-  $wake_interval,
+  $wake_interval, # needs to be an integer
 ) {
   include newrelic::config
 
