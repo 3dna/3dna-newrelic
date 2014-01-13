@@ -35,14 +35,12 @@ define newrelic::plugin::meetme::plugin::redis (
 
   newrelic::plugin::meetme::plugin { "redis_${name}":
     type    => 'redis',
-    config  => [
-      {
-        name     => $name,
-        host     => $host ,
-        db_count => $db_count,
-        password => $password,
-        path     => $path,
-      },
-    ],
+    config  => {
+      name     => $name,
+      host     => $host ,
+      db_count => $db_count,
+      password => $password,
+      path     => $path,
+    },
   }
 }
