@@ -1,13 +1,13 @@
     - name: <%= @name %>
       host: <%= @host %>
-      <% if @port -%>
+      <%- if @port -%>
       port: <%= @port.to_i %>
-      <% end -%>
+      <%- end -%>
       db_count: <%= @dbcount.to_i %>
-      <% if @password -%>
+      <%- if @password -%>
       password: <%= @password %>
-      <% end -%>
-      <% if @path -%>
+      <%- end -%>
+      <%- if @path -%>
       path: <%= @path %>
-      <% end -%>
+      <%- end -%>
 
