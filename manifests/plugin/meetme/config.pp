@@ -67,6 +67,11 @@ class newrelic::plugin::meetme::config (
     order   => "10_application_00_haproxy_000",
   }
 
+  @concat::fragment { "${config_file}_application_apache_httpd":
+    target  => $config_file,
+    content => "  apache_httpd:\n",
+    order   => "10_application_00_apache_httpd_000",
+  }
 
   concat::fragment { "${config_file}_tail":
     target  => $config_file,
