@@ -31,7 +31,6 @@ class newrelic::plugin::meetme::config (
   include newrelic::config
 
   concat { $config_file:
-    ensure => present,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
