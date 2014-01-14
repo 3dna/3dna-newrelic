@@ -24,7 +24,7 @@
 #
 define newrelic::plugin::meetme::plugin::memcached (
   $host     = 'localhost',
-  $port     = 6379,
+  $port     = 11211,
   $path     = undef, # should not be sent at all if it's undef
 ) {
   include newrelic::plugin::meetme
