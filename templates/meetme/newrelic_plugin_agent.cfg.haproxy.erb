@@ -1,0 +1,15 @@
+    - name: <%= @name %>
+      host: <%= @host %>
+      port: <%= @port.to_i %>
+      path: <%= @path %>
+      scheme: <%= @scheme %>
+      <%- if @verify_ssl_cert -%>
+      verify_ssl_cert: <%= @verify_ssl_cert %>
+      <%- end -%>
+      <%- if @username -%>
+      username: <%= @username %>
+      <%- end -%>
+      <%- if @password -%>
+      password: <%= @password %>
+      <%- end -%>
+
