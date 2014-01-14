@@ -55,6 +55,13 @@ class newrelic::plugin::meetme::config (
     order   => "10_application_00_redis_000",
   }
 
+  @concat::fragment { "${config_file}_application_memcached":
+    target  => $config_file,
+    content => "  memcached:\n",
+    order   => "10_application_00_memcached_000",
+  }
+
+
   concat::fragment { "${config_file}_tail":
     target  => $config_file,
     content => template("${module_name}/meetme/newrelic_plugin_agent.cfg.tail.erb"),

@@ -1,0 +1,9 @@
+    - name: <%= @name %>
+      host: <%= @host %>
+      <%- if @port -%>
+      port: <%= @port.to_i %>
+      <%- end -%>
+      <%- if @path -%>
+      path: <%= @path %>
+      <%- end -%>
+
