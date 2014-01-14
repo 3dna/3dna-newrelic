@@ -33,7 +33,7 @@ define newrelic::plugin::meetme::plugin::redis (
   include newrelic::plugin::meetme
   include newrelic::plugin::meetme::config
 
-  $config_file = $newrelic::plugin::meetme::config
+  $config_file = $newrelic::plugin::meetme::config::config_file
   realize(Concat::Fragment["${config_file}_application_redis"])
 
   $order = fqdn_rand(100)
