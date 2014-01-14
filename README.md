@@ -9,6 +9,7 @@ Due to this module's dependency on [ripienaar/module_data](http://forge.puppetla
 
 Since I am no longer using any puppet lower than 3, and there are so many great things about puppet 3+ that make it *far* superior to puppet 2.x, I'm standardizing on only supporting puppet 3+ for my own modules.
 Hiera data binding alone is enough for me to standardize on puppet 3+, and all of my modules are designed for use with hiera data binding.
+That being said, I'll accept pull requests which improve compatibility for versions prior to 3, but I make no guarantee to not break, or even test against puppet versions prior to 3.
 
 License
 -------
