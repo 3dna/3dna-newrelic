@@ -32,15 +32,13 @@ define newrelic::plugin::meetme::plugin::redis (
 ) {
   include newrelic::plugin::meetme
   include newrelic::plugin::meetme::config
+  include newrelic::plugin::meetme::plugin::redishead
 
-  newrelic::plugin::meetme::plugin { "redis_${name}":
-    type    => 'redis',
-    config  => {
-      name     => $name,
-      host     => $host ,
-      db_count => $db_count,
-      password => $password,
-      path     => $path,
-    },
+  $config_file = $newrelic::plugin::meetme::config
+  $order = fqdn_rand(100)
+  concat::fragment { "${config_file}_application_redis_${name}":
+    target  => $config_file,
+    content => template("${module_name}/meetme/newrelic_plugin_agent.cfg.redis.erb"),
+    order   => "10_application_10_redis_${order}",
   }
 }

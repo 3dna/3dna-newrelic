@@ -30,73 +30,36 @@ class newrelic::plugin::meetme::config (
 ) {
   include newrelic::config
 
-  datacat { $config_file:
-    template_body => '<%= @data.to_yaml %>',
-    owner    => 'root',
-    group    => 'root',
-    mode     => '0644',
+  concat { $config_file:
+    ensure => present,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
   }
 
-  datacat_fragment { "${config_file}_application":
-    target            => $config_file,
-    data              => {
-      'Application'    => {
-        license_key   => $newrelic_license_key,
-        wake_interval => $wake_interval,
-      },
-      'Daemon'    => {
-        user    => $user,
-        pidfile => $pidfile,
-      }
-    }
+  concat::fragment { "${config_file}_head":
+    target  => $config_file,
+    content => "%YAML 1.2\n---\n",
+    order   => '00',
   }
 
-  if ($proxy) {
-    datacat_fragment { "${config_file}_application_proxy":
-      target        => $config_file,
-      data          => {
-        'Application' => {
-          proxy     => $proxy,
-        },
-      },
-    }
+  concat::fragment { "${config_file}_application_head":
+    target  => $config_file,
+    content => template("${module_name}/meetme/newrelic_plugin_agent.cfg.application_head.erb"),
+    order   => "10_application_00",
   }
 
-  # hardcoded logging for now, this is all taken directly from the default config file
-  # each of these segments should probably be converted to a resource and then there's a flag for
-  # default_logging_configuration which uses these resources to build this section
-  datacat_fragment { "${config_file}_logging":
-    target         => $config_file,
-    data           => {
-      'Logging'      => {
-        formatters => {
-          verbose  => {
-            format => '%(levelname) -10s %(asctime)s %(process)-6d %(processName) -15s %(threadName)-10s %(name) -45s %(funcName) -25s L%(lineno)-6d: %(message)s',
-          },
-        },
-        handlers        => {
-          file          => {
-            'class'       => 'logging.handlers.RotatingFileHandler',
-            formatter   => 'verbose',
-            filename    => $logfile,
-            maxBytes    => 10485760,
-            backupCount => 3,
-          },
-        },
-        loggers                   => {
-          'newrelic_plugin-agent' => {
-            level                 => 'INFO',
-            propagate             => true,
-            handlers              => [ 'console','file' ],
-          },
-          requests    => {
-            level     => 'ERROR',
-            propagate => true,
-            handlers  => [ 'console','file' ],
-          },
-        },
-      },
-    },
+  # virtual so we can realize() them inside the plugin modules, similar to include but without having to make a class for each
+  @concat::fragment { "${config_file}_application_redis":
+    target  => $config_file,
+    content => "  redis:\n",
+    order   => "10_application_00_redis_000",
+  }
+
+  concat::fragment { "${config_file}_tail":
+    target  => $config_file,
+    content => template("${module_name}/meetme/newrelic_plugin_agent.cfg.tail.erb"),
+    order   => "99",
   }
 
   # install the init script in the proper place

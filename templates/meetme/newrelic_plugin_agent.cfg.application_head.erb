@@ -1,0 +1,8 @@
+Application:
+  license_key: <%= @newrelic_license_key %>
+  wake_interval: <%= @wake_interval %>
+  <% if @proxy -%>
+  proxy: <%= @proxy %>
+  <% else -%>
+  #proxy: http://localhost:8080
+  <% end -%>
