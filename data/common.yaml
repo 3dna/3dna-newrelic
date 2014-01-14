@@ -7,7 +7,7 @@ newrelic::config::logfile: /var/log/newrelic/nrsysmond.log
 newrelic::install::package: newrelic-sysmond
 newrelic::service::service: newrelic-sysmond
 
-newrelic::plugin::meetme::install::package: newrelic_plugin_agent
+newrelic::plugin::meetme::install::package: newrelic-plugin-agent
 newrelic::plugin::meetme::config::config_file: /etc/newrelic/newrelic_plugin_agent.cfg
 newrelic::plugin::meetme::config::user: newrelic
 newrelic::plugin::meetme::config::pidfile: /var/run/newrelic/newrelic_plugin_agent.pid
