@@ -61,6 +61,12 @@ class newrelic::plugin::meetme::config (
     order   => "10_application_00_memcached_000",
   }
 
+  @concat::fragment { "${config_file}_application_haproxy":
+    target  => $config_file,
+    content => "  haproxy:\n",
+    order   => "10_application_00_haproxy_000",
+  }
+
 
   concat::fragment { "${config_file}_tail":
     target  => $config_file,
