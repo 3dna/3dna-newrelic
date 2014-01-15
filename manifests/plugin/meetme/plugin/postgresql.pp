@@ -23,11 +23,13 @@
 # Copyright 2014 3dna
 #
 define newrelic::plugin::meetme::plugin::postgresql (
-  $host      = 'localhost',
-  $port      = 5432,
-  $user      = 'postgres',
-  $dbname    = 'postgres',
-  $superuser = true,
+  $host           = 'localhost',
+  $port           = 5432,
+  $dbname         = 'postgres',
+  $user           = 'postgres',
+  $password       = undef,
+  $superuser      = true,
+  $relation_stats = true,
 ) {
   include newrelic::plugin::meetme
   include newrelic::plugin::meetme::config
@@ -43,6 +45,9 @@ define newrelic::plugin::meetme::plugin::postgresql (
 
   $config_file = $newrelic::plugin::meetme::config::config_file
   realize(Concat::Fragment["${config_file}_application_postgresql"])
+
+  $superuser_bool = str2bool($superuser)
+  $relation_stats_bool = str2bool($relation_stats)
 
   $order = fqdn_rand(100)
   concat::fragment { "${config_file}_application_postgresql_${name}":
