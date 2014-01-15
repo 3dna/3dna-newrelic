@@ -1,0 +1,7 @@
+    - name: <%= @name %>
+      host: <%= @host %>
+      port: <%= @port.to_i %>
+      path: <%= @path %>
+      user: <%= @user %>
+      dbname: <%= @dbname %>
+      superuser: <%= @superuser_bool ? 'True' : 'False' %>
