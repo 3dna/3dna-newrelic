@@ -52,25 +52,25 @@ class newrelic::plugin::meetme::config (
   @concat::fragment { "${config_file}_application_redis":
     target  => $config_file,
     content => "  redis:\n",
-    order   => "10_application_00_redis_000",
+    order   => "10_application_10_redis_000",
   }
 
   @concat::fragment { "${config_file}_application_memcached":
     target  => $config_file,
     content => "  memcached:\n",
-    order   => "10_application_00_memcached_000",
+    order   => "10_application_10_memcached_000",
   }
 
   @concat::fragment { "${config_file}_application_haproxy":
     target  => $config_file,
     content => "  haproxy:\n",
-    order   => "10_application_00_haproxy_000",
+    order   => "10_application_10_haproxy_000",
   }
 
   @concat::fragment { "${config_file}_application_apache_httpd":
     target  => $config_file,
     content => "  apache_httpd:\n",
-    order   => "10_application_00_apache_httpd_000",
+    order   => "10_application_10_apache_httpd_000",
   }
 
   concat::fragment { "${config_file}_tail":
