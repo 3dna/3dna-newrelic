@@ -32,6 +32,13 @@ define newrelic::plugin::meetme::plugin::postgresql (
   include newrelic::plugin::meetme
   include newrelic::plugin::meetme::config
 
+  # this will need to be factored out for pgbouncer
+  # this being here is due to https://github.com/MeetMe/newrelic-plugin-agent/issues/215
+  # dependencies taken from https://github.com/MeetMe/newrelic-plugin-agent/blob/master/setup.py#L72
+  package { 'psycopg2':
+    provider => 'pip',
+  }
+
   $config_file = $newrelic::plugin::meetme::config::config_file
   realize(Concat::Fragment["${config_file}_application_postgresql"])
 
