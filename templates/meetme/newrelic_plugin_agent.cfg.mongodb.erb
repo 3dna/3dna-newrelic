@@ -1,0 +1,37 @@
+    - name: <%= @name %>
+      host: <%= @host %>
+      port: <%= @port.to_i %>
+      <%- if @admin_username -%>
+      admin_username: <%= @admin_username %>
+      <%- end -%>
+      <%- if @admin_password -%>
+      admin_password: <%= @admin_password %>
+      <%- end -%>
+      <%- if @ssl -%>
+      ssl: <%= @ssl %> # BOOLIFY
+      <%- end -%>
+      <%- if @ssl_keyfile -%>
+      ssl_keyfile: <%= @ssl_keyfile %>
+      <%- end -%>
+      <%- if @ssl_certfile -%>
+      ssl_certfile: <%= @ssl_certfile %>
+      <%- end -%>
+      <%- if @ssl_cert_reqs -%>
+      ssl_cert_reqs: <%= @ssl_cert_reqs %>
+      <%- end -%>
+      <%- if @ssl_ca_certs -%>
+      ssl_ca_certs: <%= @ssl_ca_certs %>
+      <%- end -%>
+      <%- if ! @databases.empty? -%>
+      databases:
+      <%- @databases.each do |name,conf| -%>
+        <%- if @admin_username -%>
+        <%= name %>:
+          username: <%= conf['username'] ? conf['username'] : @admin_username %>
+          password: <%= conf['password'] ? conf['password'] : @admin_password %>
+        <%- else -%>
+        - <%= name %>
+        <%- end -%>
+      <%- end -%>
+      <%- end -%>
+

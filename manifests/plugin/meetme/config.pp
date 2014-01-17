@@ -79,6 +79,12 @@ class newrelic::plugin::meetme::config (
     order   => '10_application_10_postgresql_000',
   }
 
+  @concat::fragment { "${config_file}_application_mongodb":
+    target  => $config_file,
+    content => "  mongodb:\n",
+    order   => '10_application_10_mongodb_000',
+  }
+
   concat::fragment { "${config_file}_tail":
     target  => $config_file,
     content => template("${module_name}/meetme/newrelic_plugin_agent.cfg.tail.erb"),
