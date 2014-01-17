@@ -43,6 +43,8 @@ define newrelic::plugin::meetme::plugin::mongodb (
     provider => 'pip',
   }
 
+  $ssl_bool = str2bool($ssl)
+
   $config_file = $newrelic::plugin::meetme::config::config_file
   realize(Concat::Fragment["${config_file}_application_mongodb"])
 
