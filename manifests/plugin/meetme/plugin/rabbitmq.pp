@@ -33,7 +33,7 @@ define newrelic::plugin::meetme::plugin::rabbitmq (
   include newrelic::plugin::meetme
   include newrelic::plugin::meetme::config
 
-  $verify_ssl_cert = str2bool($verify_ssl_cert)
+  $verify_ssl_cert_bool = str2bool($verify_ssl_cert)
 
   $config_file = $newrelic::plugin::meetme::config::config_file
   realize(Concat::Fragment["${config_file}_application_rabbitmq"])
