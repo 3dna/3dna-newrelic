@@ -1,6 +1,11 @@
 Application:
   license_key: <%= @newrelic_license_key %>
   wake_interval: <%= @wake_interval %>
+  <%- if @newrelic_api_timeout -%>
+  newrelic_api_timeout: <%= @newrelic_api_timeout %>
+  <%- else -%>
+  #newrelic_api_timeout: 10
+  <%- end -%>
   <%- if @proxy -%>
   proxy: <%= @proxy %>
   <%- else -%>

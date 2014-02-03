@@ -19,6 +19,7 @@
 class newrelic::plugin::meetme::config (
   $newrelic_license_key = $newrelic::config::license_key,
   $proxy                = undef,
+  $newrelic_api_timeout = undef,
   # defaults for these come from hiera
   $config_file,
   $init_destination,
