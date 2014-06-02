@@ -18,7 +18,7 @@ class newrelic::plugin::meetme::params {
   $user             = 'newrelic'
   $pidfile          = '/var/run/newrelic/newrelic_plugin_agent.pid'
   $logfile          = '/var/log/newrelic/newrelic_plugin_agent.log'
-  $init_distination = '/etc/init.d/newrelic_plugin_agent'
+  $init_destination = '/etc/init.d/newrelic_plugin_agent'
   $init_source      = '/opt/newrelic_plugin_agent/newrelic_plugin_agent.deb'
   $service          = 'newrelic_plugin_agent'
 }
