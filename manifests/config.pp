@@ -29,10 +29,9 @@ class newrelic::config (
   $timeout        = undef,
   $hostname       = $::fqdn,
   $pidfile        = undef,
-  # these defaults provided via hiera
-  $nr_loglevel,
-  $logfile,
-  $config_file,
+  $nr_loglevel    = 'info',
+  $logfile        = $newrelic::params::logfile,
+  $config_file    = $newrelic::params::config_file,
 ) {
   file { $config_file:
     content => template('newrelic/nrsysmond.cfg.erb'),

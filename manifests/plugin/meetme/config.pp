@@ -20,15 +20,14 @@ class newrelic::plugin::meetme::config (
   $newrelic_license_key = $newrelic::config::license_key,
   $proxy                = undef,
   $newrelic_api_timeout = undef,
-  # defaults for these come from hiera
-  $config_file,
-  $init_destination,
-  $init_source,
-  $user,
-  $pidfile,
-  $logfile,
-  $wake_interval, # needs to be an integer
-) {
+  $config_file          = $newrelic::plugin::meetme::params::config_file,
+  $init_destination     = $newrelic::plugin::meetme::params::init_destination,
+  $init_source          = $newrelic::plugin::meetme::params::init_source,
+  $user                 = $newrelic::plugin::meetme::params::user,
+  $pidfile              = $newrelic::plugin::meetme::params::pidfile,
+  $logfile              = $newrelic::plugin::meetme::params::logfile,
+  $wake_interval        = 60, # needs to be an integer
+) inherits newrelic::plugin::meetme::params {
   include newrelic::config
 
   concat { $config_file:

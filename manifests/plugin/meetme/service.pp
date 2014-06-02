@@ -17,11 +17,10 @@
 # Copyright 2014 3dna
 #
 class newrelic::plugin::meetme::service (
-  $ensure = undef,
-  $enable = true,
-  # defaults for these come from hiera
-  $service
-) {
+  $ensure  = undef,
+  $enable  = true,
+  $service = $newrelic::plugin::meetme::params::service,
+) inherits newrelic::plugin::meetme::params {
   service { $service:
     ensure => $ensure,
     enable => $enable,

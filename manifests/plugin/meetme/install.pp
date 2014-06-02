@@ -17,11 +17,10 @@
 # Copyright 2014 3dna
 #
 class newrelic::plugin::meetme::install (
-  $ensure = undef,
-  $source = undef,
-  # defaults for these parameters come from hiera
-  $package,
-) {
+  $ensure  = undef,
+  $source  = undef,
+  $package = $newrelic::plugin::meetme::params::package,
+) inherits newrelic::plugin::meetme::params {
   package { $package:
     provider => 'pip',
     ensure   => $ensure,

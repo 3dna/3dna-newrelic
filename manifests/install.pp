@@ -17,8 +17,8 @@
 #
 class newrelic::install (
   # these defaults provided via hiera
-  $package,
-) {
+  $package = $newrelic::params::package,
+) inherits newrelic::params {
   # probably should be a separate class
   apt::source { 'newrelic':
     location    => 'http://apt.newrelic.com/debian/',

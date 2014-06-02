@@ -30,9 +30,8 @@
 class newrelic::service (
   $ensure  = undef,
   $enable  = true,
-  # these defaults provided via hiera
-  $service,
-) {
+  $service = $newrelic::params::service,
+) inherits newrelic::params {
   service { $service:
     ensure => $ensure,
     enable => $enable,
