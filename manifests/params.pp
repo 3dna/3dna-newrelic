@@ -14,5 +14,5 @@ class newrelic::params {
   $service     = 'newrelic-sysmond'
   $package     = 'newrelic-sysmond'
   $logfile     = '/var/log/newrelic/nrsysmond.log'
-  $config_file = '/etc/newrelic/nrsysmond.log'
+  $config_file = '/etc/newrelic/nrsysmond.cfg'
 }
