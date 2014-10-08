@@ -14,11 +14,11 @@
 #
 class newrelic::plugin::meetme::params {
   $package          = 'newrelic-plugin-agent'
-  $config_file      = '/etc/newrelic/newrelic_plugin_agent.cfg'
+  $config_file      = '/etc/newrelic/newrelic-plugin-agent.cfg'
   $user             = 'newrelic'
-  $pidfile          = '/var/run/newrelic/newrelic_plugin_agent.pid'
-  $logfile          = '/var/log/newrelic/newrelic_plugin_agent.log'
-  $init_destination = '/etc/init.d/newrelic_plugin_agent'
-  $init_source      = '/opt/newrelic_plugin_agent/newrelic_plugin_agent.deb'
-  $service          = 'newrelic_plugin_agent'
+  $pidfile          = '/var/run/newrelic/newrelic-plugin-agent.pid'
+  $logfile          = '/var/log/newrelic/newrelic-plugin-agent.log'
+  $init_destination = '/etc/init.d/newrelic-plugin-agent'
+  $init_source      = '/opt/newrelic-plugin-agent/newrelic-plugin-agent.deb'
+  $service          = 'newrelic-plugin-agent'
 }
