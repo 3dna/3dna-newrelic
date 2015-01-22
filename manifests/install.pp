@@ -26,7 +26,7 @@ class newrelic::install (
     repos       => 'non-free',
     include_src => false,
     key         => '548C16BF',
-    key_source  => 'http://apt.atl.3dna.io/548C16BF.asc',
+    key_source  => 'https://download.newrelic.com/548C16BF.gpg',
   }
 
   package {$package:
