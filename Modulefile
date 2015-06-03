@@ -10,4 +10,4 @@ project_page 'https://github.com/3dna/3dna-newrelic'
 ## Add dependencies, if any:
 # dependency 'username/name', '>= 1.2.0'
 dependency 'puppetlabs/stdlib', '>= 4.0.0'
-dependency 'puppetlabs/postgresql', '~> 3.0.0'
+dependency 'puppetlabs/postgresql', '> 3.0.0'
