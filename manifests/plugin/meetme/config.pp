@@ -79,6 +79,12 @@ class newrelic::plugin::meetme::config (
     order   => '10_application_10_postgresql_000',
   }
 
+  @concat::fragment { "${config_file}_application_pgbouncer":
+    target  => $config_file,
+    content => "  pgbouncer:\n",
+    order   => '10_application_10_pgbouncer_000',
+  }
+
   @concat::fragment { "${config_file}_application_mongodb":
     target  => $config_file,
     content => "  mongodb:\n",
