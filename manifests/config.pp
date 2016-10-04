@@ -21,7 +21,7 @@
 # Copyright 2013 3dna
 #
 class newrelic::config (
-  $license_key,
+  $license_key    = undef,
   $proxy          = undef,
   $ssl_ca_bundle  = undef,
   $ssl_ca_path    = undef,
