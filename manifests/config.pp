@@ -32,7 +32,7 @@ class newrelic::config (
   $nr_loglevel    = 'info',
   $logfile        = $newrelic::params::logfile,
   $config_file    = $newrelic::params::config_file,
-) {
+) inherits newrelic::params {
   file { $config_file:
     content => template('newrelic/nrsysmond.cfg.erb'),
   }
