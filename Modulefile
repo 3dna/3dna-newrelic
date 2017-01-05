@@ -1,5 +1,5 @@
 name    '3dna-newrelic'
-version '0.1.0'
+version '0.1.1'
 source 'https://github.com/3dna/3dna-newrelic'
 author '3dna'
 license 'BSD 3-clause License'
