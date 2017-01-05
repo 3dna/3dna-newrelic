@@ -14,9 +14,5 @@ class newrelic::infra::params {
   $package          = 'newrelic-infra'
   $config_file      = '/etc/newrelic-infra.yml'
   $user             = 'newrelic'
-  $pidfile          = '/var/run/newrelic/newrelic-infra-agent.pid'
-  $logfile          = '/var/log/newrelic/newrelic-infra-agent.log'
-  $init_destination = '/etc/init.d/newrelic-infra-agent'
-  $init_source      = '/opt/newrelic-infra-agent/newrelic-infra-agent.deb'
-  $service          = 'newrelic-infra-agent'
+  $service          = 'newrelic-infra'
 }
