@@ -12,7 +12,7 @@
 #
 class newrelic::infra::params {
   $package          = 'newrelic-infra'
-  $config_file      = '/etc/newrelic/newrelic-infra.yml'
+  $config_file      = '/etc/newrelic-infra.yml'
   $user             = 'newrelic'
   $pidfile          = '/var/run/newrelic/newrelic-infra-agent.pid'
   $logfile          = '/var/log/newrelic/newrelic-infra-agent.log'
