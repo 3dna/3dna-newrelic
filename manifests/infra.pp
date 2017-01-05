@@ -28,6 +28,6 @@ class newrelic::infra {
       before => [Class['::newrelic::infra::install'],Class['::newrelic::infra::config']],
       notify => Class['::newrelic::infra::service'];
     'newrelic::infra::end':
-      nrequire => Class['::newrelic::infra::service'];
+      require => Class['::newrelic::infra::service'];
   }
 }
