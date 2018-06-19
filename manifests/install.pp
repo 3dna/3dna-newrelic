@@ -24,9 +24,13 @@ class newrelic::install (
     location    => 'http://apt.newrelic.com/debian/',
     release     => 'newrelic',
     repos       => 'non-free',
-    include_src => false,
-    key         => '548C16BF',
-    key_source  => 'https://download.newrelic.com/548C16BF.gpg',
+    include     => {
+      'src'       => false,
+    },
+    key         => {
+      'id'        => '548C16BF',
+      'source'    => 'https://download.newrelic.com/548C16BF.gpg',
+    },
   }
 
   package {$package:
