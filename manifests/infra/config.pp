@@ -17,8 +17,6 @@
 class newrelic::infra::config (
   $license_key = $newrelic::config::license_key,
 ) inherits newrelic::infra::params {
-  include newrelic::config
-
   file { $config_file:
     owner   => 'root',
     group   => 'root',
