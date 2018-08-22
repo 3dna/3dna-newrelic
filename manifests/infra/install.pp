@@ -20,8 +20,6 @@ class newrelic::infra::install (
   # probably should be a separate class
   apt::source { 'newrelic-infra':
     location    => 'http://download.newrelic.com/infrastructure_agent/linux/apt',
-    release     => 'trusty',
-    repos       => 'main',
     include_src => false,
     key         => '8ECCE87C',
     key_source  => 'https://download.newrelic.com/infrastructure_agent/gpg/newrelic-infra.gpg',
